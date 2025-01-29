@@ -24,17 +24,28 @@ public class Partitions {
                 result.add(1);
             } else {
                 int i = 0;
+                int pos = 0;
                 do {
                     int j = s.length() - 1;
                     for (; j > i; j--) {
                         if (s.charAt(i) == s.charAt(j)) {
-                            result.add(j - i + 1);
-                            i = j + 1;
+                            if (i < pos && j > pos) {
+                                int last = result.size() - 1;
+                                Integer lastValue = result.get(last);
+                                Integer newValue = lastValue + j - pos;
+                                result.set(last, newValue);
+                                pos = j;
+                            } else {
+                                int toAdd = j - i + 1;
+                                result.add(toAdd);
+                                pos += toAdd;
+                            }
                             break;
                         }
                     }
                     if (j == i) {
                         result.add(1);
+                        pos++;
                         i++;
                     }
                 } while (i < s.length());
