@@ -43,7 +43,12 @@ public class Anagram {
         Map<Character, Integer> createMap(String s) {
             HashMap<Character, Integer> map = new HashMap<>();
             for (char c : s.toCharArray()) {
-                map.merge(c, 1, Integer::sum);
+                Integer number = map.get(c);
+                if (number == null) {
+                    number = 0;
+                }
+                number++;
+                map.put(c, number);
             }
             return map;
         }
