@@ -28,13 +28,20 @@ public class Anagram {
             }
 
             Map<Character, Integer> template = createMap(p);
+            Map<Character, Integer> str = createMap(s.substring(0,pLen));
 
             // 2,2 -> 0
             // 3,2 -> 0,1
             // 4,2 -> 0,1,2
             for (int i = 0; i <= sLen-pLen; i++) {
-                if(template.equals(createMap(s.substring(i,i+pLen)))) {
+
+                if(template.equals(str)) {
                     result.add(i);
+                }
+
+                // 4,2 -> 0,1 -> 0x 2v
+                if(i< sLen-pLen) {
+                    updateMap(str, s.charAt(i), s.charAt(i+pLen));
                 }
             }
             return result;
@@ -43,20 +50,31 @@ public class Anagram {
         Map<Character, Integer> createMap(String s) {
             HashMap<Character, Integer> map = new HashMap<>();
             for (char c : s.toCharArray()) {
-                Integer number = map.get(c);
-                if (number == null) {
-                    number = 0;
-                }
-                number++;
-                map.put(c, number);
+                map.merge(c, 1, Integer::sum);
             }
             return map;
+        }
+
+        void updateMap(Map<Character, Integer> map, Character remove, Character add) {
+            if (!remove.equals(add)) {
+                Integer addNumber = map.get(add);
+                if (addNumber == null) {
+                    addNumber = 0;
+                }
+                map.put(add, addNumber +1);
+                Integer removeNumber = map.get(remove);
+                if (removeNumber == 1) {
+                    map.remove(remove);
+                } else {
+                    map.put(remove, removeNumber - 1);
+                }
+            }
         }
     }
 
     public static void main(String[] args) {
         Solution solution = new Anagram().new Solution();
-        String first = "abcaabca";
+        String first = "cbaebabacd";
         String second = "abc";
         List<Integer> result = solution.findAnagrams(first, second);
         System.out.println(result);
