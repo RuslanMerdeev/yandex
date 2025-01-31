@@ -22,10 +22,10 @@ public class MergeIntervals {
             int i = 0;
             int j = 1;
             do {
-                if (result[i][1] > sortedIntervals[j][1]) {
+                if (result[i][1] >= sortedIntervals[j][1]) {
 //                    result[i] = sortedIntervals[j];
 //                    j++;
-                } else if (result[i][1] > sortedIntervals[j][0]) {
+                } else if (result[i][1] >= sortedIntervals[j][0]) {
                     result[i] = new int[]{result[i][0],sortedIntervals[j][1]};
 //                    j++;
                 } else {
@@ -34,7 +34,9 @@ public class MergeIntervals {
                 }
                 j++;
             } while (j < len);
-            return result;
+            int[][] result1 = new int[i+1][result[0].length];
+            System.arraycopy(result, 0, result1, 0, i+1);
+            return result1;
         }
 
         int[][] sort(int[][] intervals) {
@@ -49,7 +51,7 @@ public class MergeIntervals {
 //            }
 
             int[][] first = sort(Arrays.copyOfRange(intervals, 0, len/2));
-            int[][] second = sort(Arrays.copyOfRange(intervals, len/2, len-1));
+            int[][] second = sort(Arrays.copyOfRange(intervals, len/2, len));
             return merge(first, second);
         }
 
@@ -76,8 +78,10 @@ public class MergeIntervals {
 
     public static void main(String[] args) {
         Solution solution = new MergeIntervals().new Solution();
-        int[][] numbers = new int[][]{{0,10},{2,4},{6,8}};
+        int[][] numbers = new int[][]{{1,4},{4,6}};
         int[][] result = solution.merge(numbers);
-        System.out.println(Arrays.toString(result));
+        for (int[] res : result) {
+            System.out.println(Arrays.toString(res));
+        }
     }
 }
