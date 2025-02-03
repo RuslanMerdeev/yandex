@@ -34,7 +34,6 @@ public class MaxProfit {
             if (len < 2) return 0;
 
             int min = prices[0];
-            int max = 0;
             int prev = prices[0];
             int prevDiff = 0;
             int result = 0;
