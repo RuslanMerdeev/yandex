@@ -1,6 +1,6 @@
 package leetcode
 
-class Solution {
+class PalindromeNumber {
     fun isPalindrome(x: Int): Boolean {
         val array = x.toString().toCharArray()
         val size = array.size
@@ -24,7 +24,7 @@ class Solution {
 }
 
 fun main() {
-    val solution = Solution()
+    val solution = PalindromeNumber()
     check(solution.isPalindrome(1))
     check(solution.isPalindrome(11))
     check(!solution.isPalindrome(-11))
