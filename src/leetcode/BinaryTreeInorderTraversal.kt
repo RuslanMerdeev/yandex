@@ -8,6 +8,30 @@ class TreeNode(var `val`: Int) {
         this.left = left
         this.right = right
     }
+
+    fun compare(node: TreeNode): Boolean {
+        if (node.`val` != this.`val`) {
+            return false
+        }
+
+        if ((node.left == null) != (this.left == null)) {
+            return false
+        }
+
+        if (this.left != null && !this.left!!.compare(node.left!!)) {
+            return false
+        }
+
+        if ((node.right == null) != (this.right == null)) {
+            return false
+        }
+
+        if (this.right != null && !this.right!!.compare(node.right!!)) {
+            return false
+        }
+
+        return true
+    }
 }
 
 class BinaryTreeInorderTraversal {
