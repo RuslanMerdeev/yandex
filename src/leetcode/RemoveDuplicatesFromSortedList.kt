@@ -1,5 +1,7 @@
 package leetcode
 
+import leetcode.utils.ListNode
+
 //class ListNode {
 //    var next: ListNode? = null
 //    var `val`: Int? = null

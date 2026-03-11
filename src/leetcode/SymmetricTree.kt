@@ -1,5 +1,7 @@
 package leetcode
 
+import leetcode.utils.TreeNode
+
 class SymmetricTree {
     fun isSymmetric(root: TreeNode?): Boolean {
         if(root == null) {

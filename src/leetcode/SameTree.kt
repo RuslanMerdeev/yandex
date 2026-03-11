@@ -1,5 +1,7 @@
 package leetcode
 
+import leetcode.utils.TreeNode
+
 class SameTree {
     fun isSameTree(p: TreeNode?, q: TreeNode?): Boolean {
         if (p == null && q == null) {

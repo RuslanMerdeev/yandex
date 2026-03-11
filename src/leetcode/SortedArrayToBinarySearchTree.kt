@@ -1,5 +1,7 @@
 package leetcode
 
+import leetcode.utils.TreeNode
+
 class SortedArrayToBinarySearchTree {
     fun sortedArrayToBST(nums: IntArray): TreeNode? {
         if (nums.isEmpty()) {

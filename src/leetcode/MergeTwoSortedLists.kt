@@ -1,46 +1,6 @@
 package leetcode
 
-class ListNode(var `val`: Int) {
-    var next: ListNode? = null
-
-    companion object {
-        fun fromList(list: List<Int>?): ListNode? {
-            if (list == null || list.isEmpty()) {
-                return null
-            }
-
-            var ptr: ListNode? = ListNode(0)
-            val result = ptr
-
-            for (i in list) {
-                ptr!!.next = ListNode(i)
-                ptr = ptr.next
-            }
-
-            return result!!.next
-        }
-    }
-
-    fun compare(list: ListNode?): Boolean {
-        if(list == null) {
-            return false
-        }
-
-        if (`val` != list.`val`) {
-            return false
-        }
-
-        if ((next==null) != (list.next==null)) {
-            return false
-        }
-
-        if (next == null) {
-            return true
-        }
-
-        return next!!.compare(list.next)
-    }
-}
+import leetcode.utils.ListNode
 
 class MergeTwoSortedLists {
 

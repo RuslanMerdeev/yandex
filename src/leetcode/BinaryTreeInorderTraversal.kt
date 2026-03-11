@@ -1,38 +1,6 @@
 package leetcode
 
-class TreeNode(var `val`: Int) {
-    var left: TreeNode? = null
-    var right: TreeNode? = null
-
-    constructor(`val`: Int, left: TreeNode? = null, right: TreeNode? = null): this(`val`) {
-        this.left = left
-        this.right = right
-    }
-
-    fun compare(node: TreeNode): Boolean {
-        if (node.`val` != this.`val`) {
-            return false
-        }
-
-        if ((node.left == null) != (this.left == null)) {
-            return false
-        }
-
-        if (this.left != null && !this.left!!.compare(node.left!!)) {
-            return false
-        }
-
-        if ((node.right == null) != (this.right == null)) {
-            return false
-        }
-
-        if (this.right != null && !this.right!!.compare(node.right!!)) {
-            return false
-        }
-
-        return true
-    }
-}
+import leetcode.utils.TreeNode
 
 class BinaryTreeInorderTraversal {
     fun inorderTraversal(root: TreeNode?): List<Int> {
