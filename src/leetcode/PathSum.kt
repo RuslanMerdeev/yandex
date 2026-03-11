@@ -1,5 +1,7 @@
 package leetcode
 
+import leetcode.utils.TreeNode
+
 class PathSum {
     fun hasPathSum(root: TreeNode?, targetSum: Int): Boolean {
         if (root == null) {

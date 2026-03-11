@@ -1,5 +1,6 @@
 package leetcode
 
+import leetcode.utils.TreeNode
 import kotlin.math.min
 
 class MinimumDepthOfBinaryTree {

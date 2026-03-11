@@ -3,6 +3,10 @@ package leetcode.utils
 class ListNode(var `val`: Int) {
     var next: ListNode? = null
 
+    constructor(`val`: Int, next: ListNode? = null): this(`val`) {
+        this.next = next
+    }
+
     companion object {
         fun fromList(list: List<Int>?): ListNode? {
             if (list == null || list.isEmpty()) {
