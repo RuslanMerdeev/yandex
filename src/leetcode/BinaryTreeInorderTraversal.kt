@@ -45,19 +45,3 @@ fun main() {
 
     println("ok")
 }
-
-
-//fun inorderTraversal(root: TreeNode?): List<Int> {
-//    if (root == null) {
-//        return emptyList()
-//    }
-//    var cursor = root
-//
-//    val result = mutableListOf<Int>()
-//
-//    do {
-//
-//    } while(cursor != null)
-//
-//    return result
-//}
