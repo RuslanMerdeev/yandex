@@ -8,14 +8,16 @@ class LinkedListCycle {
             return false
         }
 
-        val nexts = mutableListOf<ListNode>()
-        var next: ListNode? = head.next
-        while (next != null && next !in nexts) {
-            nexts.add(next)
-            next = next.next
-        }
-        if (next in nexts) {
-            return true
+        var fast = head
+        var slow = head
+
+        while (fast != null && fast.next != null) {
+            fast = fast.next!!.next
+            slow = slow!!.next
+
+            if (fast == slow) {
+                return true
+            }
         }
 
         return false
