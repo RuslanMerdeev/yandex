@@ -30,8 +30,10 @@ fun initH2(preparing: (connection: Connection) -> Unit, performing: (connection:
     } catch (_: ClassNotFoundException) {
         println("❌ H2 JDBC Driver не найден")
         println("Добавьте зависимость в build.gradle.kts: implementation(\"com.h2database:h2:2.2.224\")")
+        assert(false)
     } catch (e: SQLException) {
         println("❌ Ошибка базы данных: ${e.message}")
+        assert(false)
     } finally {
         connection?.close()
         println("\n🔌 Соединение закрыто")

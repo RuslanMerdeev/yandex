@@ -44,11 +44,11 @@ class CombineTwoTablesTest {
     }
 
     @Test
-    fun combine() {
+    fun select() {
         initH2(
             { connection ->  createTestTables(connection) },
             { connection ->
-                val result = executeQuery(connection, CombineTwoTables().combine().trimIndent())
+                val result = executeQuery(connection, CombineTwoTables().select().trimIndent())
 
                 assert(result.size == 2)
                 with(result[0]) {

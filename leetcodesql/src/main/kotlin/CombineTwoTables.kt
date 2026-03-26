@@ -2,7 +2,7 @@ package org.example
 
 class CombineTwoTables {
 
-    fun combine() = """
+    fun select() = """
         SELECT p.firstName,p.lastName,a.city,a.state 
         FROM Person as p 
         LEFT JOIN Address as a 
