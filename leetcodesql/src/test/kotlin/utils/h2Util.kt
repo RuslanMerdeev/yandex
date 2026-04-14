@@ -62,3 +62,9 @@ fun executeQuery(connection: Connection, query: String): List<Map<String, String
     statement.close()
     return result
 }
+
+fun execute(connection: Connection, query: String) {
+    val statement = connection.createStatement()
+    statement.execute(query)
+    statement.close()
+}
