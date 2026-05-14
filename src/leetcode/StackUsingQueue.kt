@@ -1,7 +1,5 @@
 package leetcode
 
-import java.util.Queue
-
 class StackUsingQueue {
     val queue = ArrayDeque<Int>()
 
